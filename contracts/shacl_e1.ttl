@@ -1,0 +1,39 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ex:  <http://example.com/esrs#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:E1RecordShape a sh:NodeShape ;
+  sh:targetClass ex:E1Record ;
+
+  # companyId presente
+  sh:property [
+    sh:path ex:companyId ;
+    sh:datatype xsd:string ;
+    sh:minCount 1
+  ] ;
+
+  # Fechas válidas
+  sh:property [
+    sh:path ex:periodStart ;
+    sh:datatype xsd:date ;
+    sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path ex:periodEnd ;
+    sh:datatype xsd:date ;
+    sh:minCount 1
+  ] ;
+
+  # kWh >= 0
+  sh:property [
+    sh:path ex:kwh ;
+    sh:datatype xsd:decimal ;
+    sh:minInclusive 0 ;
+    sh:minCount 1
+  ] ;
+
+  # Evidencia al menos 1
+  sh:property [
+    sh:path ex:hasEvidence ;
+    sh:minCount 1
+  ] .

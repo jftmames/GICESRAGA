@@ -1,0 +1,34 @@
+@prefix ex:   <http://example.com/esrs#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+# Clases
+ex:Entidad        a owl:Class .
+ex:E1Record       a owl:Class .
+ex:S1Record       a owl:Class .
+ex:G1Record       a owl:Class .
+ex:Evidencia      a owl:Class .
+ex:KPI            a owl:Class .
+
+# Propiedades de datos comunes
+ex:companyId      a owl:DatatypeProperty ; rdfs:range xsd:string .
+ex:period         a owl:DatatypeProperty ; rdfs:range xsd:string .
+ex:periodStart    a owl:DatatypeProperty ; rdfs:range xsd:date .
+ex:periodEnd      a owl:DatatypeProperty ; rdfs:range xsd:date .
+ex:kwh            a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ex:emissionFactor a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ex:employeesStart a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ex:employeesEnd   a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ex:exits          a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ex:casesOpened    a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ex:casesClosed    a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ex:closedWithResolution a owl:DatatypeProperty ; rdfs:range xsd:integer .
+
+# Propiedades de objeto
+ex:hasEvidence    a owl:ObjectProperty ; rdfs:range ex:Evidencia .
+
+# Metadata simple de evidencia
+ex:evidencePath   a owl:DatatypeProperty ; rdfs:range xsd:string .
+ex:sha256         a owl:DatatypeProperty ; rdfs:range xsd:string .

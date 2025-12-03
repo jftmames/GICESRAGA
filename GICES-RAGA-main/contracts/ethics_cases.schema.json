@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ethics_cases_v1",
+  "type": "object",
+  "properties": {
+    "company_id": {"type": "string", "minLength": 1},
+    "period": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$"},
+    "cases_opened": {"type": "integer", "minimum": 0},
+    "cases_closed": {"type": "integer", "minimum": 0},
+    "closed_with_resolution": {"type": "integer", "minimum": 0},
+    "source_system": {"type": "string", "minLength": 1}
+  },
+  "required": ["company_id","period","cases_opened","cases_closed","closed_with_resolution","source_system"],
+  "additionalProperties": false
+}

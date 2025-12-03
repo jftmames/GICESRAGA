@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "erp_energy_v1",
+  "type": "object",
+  "properties": {
+    "company_id": {"type": "string", "minLength": 1},
+    "period_start": {"type": "string", "format": "date"},
+    "period_end": {"type": "string", "format": "date"},
+    "kwh": {"type": "number", "minimum": 0},
+    "emission_factor_co2e": {"type": "number", "minimum": 0},
+    "source_system": {"type": "string", "minLength": 1}
+  },
+  "required": ["company_id", "period_start", "period_end", "kwh", "source_system"],
+  "additionalProperties": false
+}

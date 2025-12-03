@@ -1,0 +1,11 @@
+[
+  {
+    "company_id": "GICES_DEMO",
+    "period": "2024",
+    "ecosystem_area_ha": 150,
+    "restoration_project_id": "NAT-CREDIT-AMAZON-001",
+    "project_type": "active_restoration",
+    "financial_risk_exposure": "High",
+    "source_system": "blockchain_verifier_v1"
+  }
+]

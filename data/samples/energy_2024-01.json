@@ -1,0 +1,4 @@
+[
+  {"company_id":"ACME","period_start":"2024-01-01","period_end":"2024-01-31","kwh":12300,"emission_factor_co2e":0.231,"source_system":"erp_v2"},
+  {"company_id":"ACME","period_start":"2024-01-01","period_end":"2024-01-31","kwh":9800,"emission_factor_co2e":0.201,"source_system":"erp_v2"}
+]

@@ -1,0 +1,43 @@
+energy:
+  completeness:
+    - { field: "kwh", rule: "not_null" }
+    - { field: "period_start", rule: "not_null" }
+    - { field: "period_end", rule: "not_null" }
+  validity:
+    - { field: "period_start", rule: "is_date" }
+    - { field: "period_end", rule: "is_date" }
+    - { field: "kwh", rule: ">=0" }
+  consistency:
+    - { rule: "period_start <= period_end" }
+  timeliness:
+    - { field: "period_end", rule: "within_month('2024-01')" }
+
+hr:
+  completeness:
+    - { field: "employees_start", rule: "not_null" }
+    - { field: "employees_end", rule: "not_null" }
+    - { field: "exits", rule: "not_null" }
+  validity:
+    - { field: "period", rule: "is_yyyy_mm" }
+    - { field: "employees_start", rule: ">=0" }
+    - { field: "employees_end", rule: ">=0" }
+    - { field: "exits", rule: ">=0" }
+  consistency:
+    - { rule: "employees_end <= employees_start + 1000" }   # cota blanda para detectar outliers
+  timeliness:
+    - { field: "period", rule: "equals('2024-01')" }
+
+ethics:
+  completeness:
+    - { field: "cases_opened", rule: "not_null" }
+    - { field: "cases_closed", rule: "not_null" }
+    - { field: "closed_with_resolution", rule: "not_null" }
+  validity:
+    - { field: "period", rule: "is_yyyy_mm" }
+    - { field: "cases_opened", rule: ">=0" }
+    - { field: "cases_closed", rule: ">=0" }
+    - { field: "closed_with_resolution", rule: ">=0" }
+  consistency:
+    - { rule: "closed_with_resolution <= cases_closed" }
+  timeliness:
+    - { field: "period", rule: "equals('2024-01')" }

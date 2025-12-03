@@ -1,0 +1,13 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ex:  <http://example.com/esrs#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:S1RecordShape a sh:NodeShape ;
+  sh:targetClass ex:S1Record ;
+
+  sh:property [ sh:path ex:companyId ; sh:datatype xsd:string ; sh:minCount 1 ] ;
+  sh:property [ sh:path ex:period ; sh:datatype xsd:string ; sh:pattern "^[0-9]{4}-[0-9]{2}$" ; sh:minCount 1 ] ;
+  sh:property [ sh:path ex:employeesStart ; sh:datatype xsd:integer ; sh:minInclusive 0 ; sh:minCount 1 ] ;
+  sh:property [ sh:path ex:employeesEnd   ; sh:datatype xsd:integer ; sh:minInclusive 0 ; sh:minCount 1 ] ;
+  sh:property [ sh:path ex:exits          ; sh:datatype xsd:integer ; sh:minInclusive 0 ; sh:minCount 1 ] ;
+  sh:property [ sh:path ex:hasEvidence    ; sh:minCount 1 ] .

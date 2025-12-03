@@ -1,0 +1,17 @@
+eee_gate:
+  threshold_score: 0.70          # umbral de publicación
+  weights: { epistemic: 0.4, explicit: 0.3, evidence: 0.3 }
+
+  # reglas y límites operativos
+  max_time_to_evidence_sec: 7200  # 2h (en PoC lo simulamos)
+  critical_dps: ["E1.*","S1.*","G1.*"]
+
+  # override humano
+  require_four_eyes: true
+  override_role: "Head Compliance"
+
+  # artefactos que deben existir
+  required_artifacts:
+    - "raga/kpis.json"
+    - "raga/explain.json"
+    - "ontology/validation.log"
